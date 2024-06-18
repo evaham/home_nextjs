@@ -18,6 +18,7 @@ export default function Home() {
         const response = await axios.get('https://my-json-server.typicode.com/evaham/git_test_db/list_group1');
         setData(response.data);
         console.log(response)
+
       } catch (error) {
         setError('Error fetching data');
       } finally {
@@ -48,7 +49,7 @@ export default function Home() {
           </div>
           {data.map((items)=>{
             return (
-              <a href={`/detail/${items.id}`} key={items.id} className="relative overflow-hidden flex flex-col-reverse h-40 rounded-xl ring-1 ring-slate-900/5 shadow-sm bg-white dark:bg-slate-800 lg:h-64 lg:transition lg:ease-in-out lg:delay-30 lg:hover:-translate-y-1 lg:hover:scale-105 lg:hover:shadow-md">
+              <a href={`/detail/${items.id}`} key={id} className="relative overflow-hidden flex flex-col-reverse h-40 rounded-xl ring-1 ring-slate-900/5 shadow-sm bg-white dark:bg-slate-800 lg:h-64 lg:transition lg:ease-in-out lg:delay-30 lg:hover:-translate-y-1 lg:hover:scale-105 lg:hover:shadow-md">
                 <div className="relative overflow-hidden min-w-full min-h-full bg-slate-200">
                   <img src={items.img} className="absolute top-1/2 left-1/2 translate-y-[-50%] translate-x-[-50%]" alt="" />
                 </div>
@@ -72,14 +73,13 @@ export default function Home() {
           </div>
           {data.map((items)=>{
             return (
-              <a href={`/read/${items.id}`} key={items.id} className="relative overflow-hidden flex flex-col-reverse h-40 rounded-xl ring-1 ring-slate-900/5 shadow-sm bg-white dark:bg-slate-800 lg:h-64 lg:transition lg:ease-in-out lg:delay-30 lg:hover:-translate-y-1 lg:hover:scale-105 lg:hover:shadow-md">
+              <a href={`/read/${items.id}`} key={id} className="relative overflow-hidden flex flex-col-reverse h-40 rounded-xl ring-1 ring-slate-900/5 shadow-sm bg-white dark:bg-slate-800 lg:h-64 lg:transition lg:ease-in-out lg:delay-30 lg:hover:-translate-y-1 lg:hover:scale-105 lg:hover:shadow-md">
                 <div className="relative overflow-hidden min-w-full min-h-full bg-white">
                   <img src={items.img} className="absolute top-1/2 left-1/2 translate-y-[-50%] translate-x-[-50%]" alt="" />
                 </div>
                 <div className="absolute top-0 left-0 bott right-0 flex h-32 flex-col px-6 pt-4 pb-6 bg-gradient-to-b from-[rgba(0,0,0,.5)] text-white">
                   <p className="mb-0 text-sm">{items.cate}</p>
                   <p className="text-xl font-bold leading-tight" dangerouslySetInnerHTML={{ __html: items.title }}></p>
-                  {/* <p className="mt-auto text-sm">{items.service}</p> */}
                 </div>
               </a>
             )
@@ -97,14 +97,13 @@ export default function Home() {
           </div>
           {data.map((items)=>{
             return (
-              <a href={`/read/${items.id}`} key={items.id} className="relative overflow-hidden flex flex-col-reverse h-40 rounded-xl ring-1 ring-slate-900/5 shadow-sm bg-white dark:bg-slate-800 lg:h-64 lg:transition lg:ease-in-out lg:delay-30 lg:hover:-translate-y-1 lg:hover:scale-105 lg:hover:shadow-md">
+              <a href={`/read/${items.id}`} key={id} className="relative overflow-hidden flex flex-col-reverse h-40 rounded-xl ring-1 ring-slate-900/5 shadow-sm bg-white dark:bg-slate-800 lg:h-64 lg:transition lg:ease-in-out lg:delay-30 lg:hover:-translate-y-1 lg:hover:scale-105 lg:hover:shadow-md">
                 <div className="relative overflow-hidden min-w-full min-h-full bg-slate-200">
                   <img src={items.img} className="absolute top-1/2 left-1/2 translate-y-[-50%] translate-x-[-50%]" alt="" />
                 </div>
                 <div className="absolute top-0 left-0 bott right-0 flex h-32 flex-col px-6 pt-4 pb-6 bg-gradient-to-b from-[rgba(0,0,0,.5)] text-white">
                   <p className="mb-0 text-sm">{items.cate}</p>
                   <p className="text-xl font-bold leading-tight" dangerouslySetInnerHTML={{ __html: items.title }}></p>
-                  {/* <p className="mt-auto text-sm">{items.service}</p> */}
                 </div>
               </a>
             )
@@ -121,14 +120,13 @@ export default function Home() {
           </div>
           {data.map((items)=>{
             return (
-              <a href={`/read/${items.id}`} key={items.id} className="relative overflow-hidden flex flex-col-reverse h-40 rounded-xl ring-1 ring-slate-900/5 shadow-sm bg-white dark:bg-slate-800 lg:h-64 lg:transition lg:ease-in-out lg:delay-30 lg:hover:-translate-y-1 lg:hover:scale-105 lg:hover:shadow-md">
+              <a href={`/read/${items.id}`} key={id} className="relative overflow-hidden flex flex-col-reverse h-40 rounded-xl ring-1 ring-slate-900/5 shadow-sm bg-white dark:bg-slate-800 lg:h-64 lg:transition lg:ease-in-out lg:delay-30 lg:hover:-translate-y-1 lg:hover:scale-105 lg:hover:shadow-md">
                 <div className="relative overflow-hidden min-w-full min-h-full bg-slate-200">
                   <img src={items.img} className="absolute top-1/2 left-1/2 translate-y-[-50%] translate-x-[-50%]" alt="" />
                 </div>
                 <div className="absolute top-0 left-0 bott right-0 flex h-32 flex-col px-6 pt-4 pb-6 bg-gradient-to-b from-[rgba(0,0,0,.5)] text-white">
                   <p className="mb-0 text-sm">{items.cate}</p>
                   <p className="text-xl font-bold leading-tight" dangerouslySetInnerHTML={{ __html: items.title }}></p>
-                  {/* <p className="mt-auto text-sm">{items.service}</p> */}
                 </div>
               </a>
             )
