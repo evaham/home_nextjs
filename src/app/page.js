@@ -1,113 +1,141 @@
+'use client'
+
 import Image from "next/image";
+import React, { useEffect, useState } from 'react';
+// import data from "/public/data/db.json";
+import axios from "axios";
 
 export default function Home() {
+
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    // 데이터를 가져오는 비동기 함수
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('https://my-json-server.typicode.com/evaham/git_test_db/list_group1');
+        setData(response.data);
+        console.log(response)
+      } catch (error) {
+        setError('Error fetching data');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>{error}</div>;
+  }
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main className="min-h-96">
+      <div className="">
+        <div className="mx-auto py-32 px-5 gap-5 grid lg:w-[80rem] lg:grid-cols-4 lg:grid-flow-row lg:gap-6">
+          <div className="relative flex flex-col py-5 px-10 lg:col-start-1 lg:col-end-3 lg:row-start-1 lg:row-end-3">
+            <p className="mt-1 text-2xl font-[700] text-center tracking-tight whitespace-pre-wrap lg:text-[2.7rem] lg:leading-snug lg:text-left dark:text-white">매장운영의 기본,<br/>투게더 POS 솔루션</p>
+            <p className="mt-6 text-base text-slate-700 leading-tight lg:mt-6 lg:text-xl lg:leading-normal dark:text-slate-400">
+              POS(판매 시점 정보 관리) 시스템은 매장 운영의 필수 도구입니다. 이 시스템은 상품 판매 시점에서 결제 처리, 재고 관리, 매출 분석 등 다양한 기능을 수행하여 효율적인 매장 운영을 돕습니다.
+            </p>
+          </div>
+          {data.map((items)=>{
+            return (
+              <a href={`/detail/${items.id}`} key={items.id} className="relative overflow-hidden flex flex-col-reverse h-40 rounded-xl ring-1 ring-slate-900/5 shadow-sm bg-white dark:bg-slate-800 lg:h-64 lg:transition lg:ease-in-out lg:delay-30 lg:hover:-translate-y-1 lg:hover:scale-105 lg:hover:shadow-md">
+                <div className="relative overflow-hidden min-w-full min-h-full bg-slate-200">
+                  <img src={items.img} className="absolute top-1/2 left-1/2 translate-y-[-50%] translate-x-[-50%]" alt="" />
+                </div>
+                <div className="absolute top-0 left-0 bott right-0 flex h-32 flex-col px-6 pt-4 pb-6 bg-gradient-to-b from-[rgba(0,0,0,.5)] text-white">
+                  <p className="mb-0 text-sm">{items.cate}</p>
+                  <p className="text-xl font-bold leading-tight" dangerouslySetInnerHTML={{ __html: items.title }}></p>
+                </div>
+              </a>
+            )
+          })}
+        </div>
+      </div>
+      <div className="bg-slate-200 dark:bg-opacity-10">
+        <div className="mx-auto py-32 px-5 gap-5 grid lg:w-[80rem] lg:grid-cols-4 lg:grid-flow-row lg:gap-8">
+          <div className="relative flex flex-col items-center justify-center py-5 lg:col-start-2 lg:col-end-4 lg:row-start-1 lg:row-end-3">
+            <p className="text-2xl text-blue-900 tracking-tighter lg:text-3xl dark:text-slate-400">효율적 운영을 위한 지원군</p>
+            <p className="mt-3 text-4xl text-blue-900 font-extrabold tracking-tighter lg:text-6xl dark:text-white">부가 솔루션</p>
+            <p className="mt-6 text-lg leading-6 xl:mt-6 xl:row-start-4 xl:col-span-1 dark:text-slate-400">
+              일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔
+            </p>
+          </div>
+          {data.map((items)=>{
+            return (
+              <a href={`/read/${items.id}`} key={items.id} className="relative overflow-hidden flex flex-col-reverse h-40 rounded-xl ring-1 ring-slate-900/5 shadow-sm bg-white dark:bg-slate-800 lg:h-64 lg:transition lg:ease-in-out lg:delay-30 lg:hover:-translate-y-1 lg:hover:scale-105 lg:hover:shadow-md">
+                <div className="relative overflow-hidden min-w-full min-h-full bg-white">
+                  <img src={items.img} className="absolute top-1/2 left-1/2 translate-y-[-50%] translate-x-[-50%]" alt="" />
+                </div>
+                <div className="absolute top-0 left-0 bott right-0 flex h-32 flex-col px-6 pt-4 pb-6 bg-gradient-to-b from-[rgba(0,0,0,.5)] text-white">
+                  <p className="mb-0 text-sm">{items.cate}</p>
+                  <p className="text-xl font-bold leading-tight" dangerouslySetInnerHTML={{ __html: items.title }}></p>
+                  {/* <p className="mt-auto text-sm">{items.service}</p> */}
+                </div>
+              </a>
+            )
+          })}
+        </div>
+      </div>
+      <div className="">
+        <div className="mx-auto py-32 px-5 gap-5 grid lg:w-[80rem] lg:grid-cols-4 lg:grid-flow-row lg:gap-8">
+          <div className="relative flex flex-col items-center justify-center py-5 lg:col-start-3 lg:col-end-5 lg:row-start-1 lg:row-end-3">
+          <p className="text-2xl text-blue-900 tracking-tighter lg:text-3xl dark:text-slate-400">언제 어디서나 접속 완료!</p>
+            <p className="mt-3 text-4xl text-blue-900 font-extrabold tracking-tighter lg:text-6xl dark:text-white">모바일 솔루션</p>
+            <p className="mt-6 text-lg leading-6 xl:mt-6 xl:row-start-4 xl:col-span-1 dark:text-slate-400">
+              일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔
+            </p>
+          </div>
+          {data.map((items)=>{
+            return (
+              <a href={`/read/${items.id}`} key={items.id} className="relative overflow-hidden flex flex-col-reverse h-40 rounded-xl ring-1 ring-slate-900/5 shadow-sm bg-white dark:bg-slate-800 lg:h-64 lg:transition lg:ease-in-out lg:delay-30 lg:hover:-translate-y-1 lg:hover:scale-105 lg:hover:shadow-md">
+                <div className="relative overflow-hidden min-w-full min-h-full bg-slate-200">
+                  <img src={items.img} className="absolute top-1/2 left-1/2 translate-y-[-50%] translate-x-[-50%]" alt="" />
+                </div>
+                <div className="absolute top-0 left-0 bott right-0 flex h-32 flex-col px-6 pt-4 pb-6 bg-gradient-to-b from-[rgba(0,0,0,.5)] text-white">
+                  <p className="mb-0 text-sm">{items.cate}</p>
+                  <p className="text-xl font-bold leading-tight" dangerouslySetInnerHTML={{ __html: items.title }}></p>
+                  {/* <p className="mt-auto text-sm">{items.service}</p> */}
+                </div>
+              </a>
+            )
+          })}
+        </div>
+      </div>
+      <div className="">
+        <div className="mx-auto py-32 px-5 gap-5 grid lg:w-[80rem] lg:grid-cols-4 lg:grid-flow-row lg:gap-8">
+          <div className="relative flex flex-col items-center justify-center py-5 lg:col-start-1 lg:col-end-5 lg:row-start-1 lg:row-end-3">
+            <p className="mt-3 text-4xl text-blue-900 font-extrabold tracking-tighter lg:text-6xl dark:text-white">투게더스 회사소개</p>
+            <p className="mt-6 text-lg leading-6 xl:mt-6 xl:row-start-4 xl:col-span-1 dark:text-slate-400">
+              투게더스는 중소유통을 위해 끊임없이 노력하는 회사입니다.
+            </p>
+          </div>
+          {data.map((items)=>{
+            return (
+              <a href={`/read/${items.id}`} key={items.id} className="relative overflow-hidden flex flex-col-reverse h-40 rounded-xl ring-1 ring-slate-900/5 shadow-sm bg-white dark:bg-slate-800 lg:h-64 lg:transition lg:ease-in-out lg:delay-30 lg:hover:-translate-y-1 lg:hover:scale-105 lg:hover:shadow-md">
+                <div className="relative overflow-hidden min-w-full min-h-full bg-slate-200">
+                  <img src={items.img} className="absolute top-1/2 left-1/2 translate-y-[-50%] translate-x-[-50%]" alt="" />
+                </div>
+                <div className="absolute top-0 left-0 bott right-0 flex h-32 flex-col px-6 pt-4 pb-6 bg-gradient-to-b from-[rgba(0,0,0,.5)] text-white">
+                  <p className="mb-0 text-sm">{items.cate}</p>
+                  <p className="text-xl font-bold leading-tight" dangerouslySetInnerHTML={{ __html: items.title }}></p>
+                  {/* <p className="mt-auto text-sm">{items.service}</p> */}
+                </div>
+              </a>
+            )
+          })}
         </div>
       </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
     </main>
   );
 }
