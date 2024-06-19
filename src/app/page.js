@@ -49,7 +49,7 @@ export default function Home() {
           </div>
           {data.map((items)=>{
             return (
-              <a href={`/detail/${items.id}`} key={id} className="relative overflow-hidden flex flex-col-reverse h-40 rounded-xl ring-1 ring-slate-900/5 shadow-sm bg-white dark:bg-slate-800 lg:h-64 lg:transition lg:ease-in-out lg:delay-30 lg:hover:-translate-y-1 lg:hover:scale-105 lg:hover:shadow-md">
+              <a href={`/detail/${items.id}`} key={items.id} className="relative overflow-hidden flex flex-col-reverse h-40 rounded-xl ring-1 ring-slate-900/5 shadow-sm bg-white dark:bg-slate-800 lg:h-64 lg:transition lg:ease-in-out lg:delay-30 lg:hover:-translate-y-1 lg:hover:scale-105 lg:hover:shadow-md">
                 <div className="relative overflow-hidden min-w-full min-h-full bg-slate-200">
                   <img src={items.img} className="absolute top-1/2 left-1/2 translate-y-[-50%] translate-x-[-50%]" alt="" />
                 </div>
@@ -73,7 +73,7 @@ export default function Home() {
           </div>
           {data.map((items)=>{
             return (
-              <a href={`/read/${items.id}`} key={id} className="relative overflow-hidden flex flex-col-reverse h-40 rounded-xl ring-1 ring-slate-900/5 shadow-sm bg-white dark:bg-slate-800 lg:h-64 lg:transition lg:ease-in-out lg:delay-30 lg:hover:-translate-y-1 lg:hover:scale-105 lg:hover:shadow-md">
+              <a href={`/read/${items.id}`} key={items.id} className="relative overflow-hidden flex flex-col-reverse h-40 rounded-xl ring-1 ring-slate-900/5 shadow-sm bg-white dark:bg-slate-800 lg:h-64 lg:transition lg:ease-in-out lg:delay-30 lg:hover:-translate-y-1 lg:hover:scale-105 lg:hover:shadow-md">
                 <div className="relative overflow-hidden min-w-full min-h-full bg-white">
                   <img src={items.img} className="absolute top-1/2 left-1/2 translate-y-[-50%] translate-x-[-50%]" alt="" />
                 </div>
@@ -97,7 +97,7 @@ export default function Home() {
           </div>
           {data.map((items)=>{
             return (
-              <a href={`/read/${items.id}`} key={id} className="relative overflow-hidden flex flex-col-reverse h-40 rounded-xl ring-1 ring-slate-900/5 shadow-sm bg-white dark:bg-slate-800 lg:h-64 lg:transition lg:ease-in-out lg:delay-30 lg:hover:-translate-y-1 lg:hover:scale-105 lg:hover:shadow-md">
+              <a href={`/read/${items.id}`} key={items.id} className="relative overflow-hidden flex flex-col-reverse h-40 rounded-xl ring-1 ring-slate-900/5 shadow-sm bg-white dark:bg-slate-800 lg:h-64 lg:transition lg:ease-in-out lg:delay-30 lg:hover:-translate-y-1 lg:hover:scale-105 lg:hover:shadow-md">
                 <div className="relative overflow-hidden min-w-full min-h-full bg-slate-200">
                   <img src={items.img} className="absolute top-1/2 left-1/2 translate-y-[-50%] translate-x-[-50%]" alt="" />
                 </div>
@@ -120,7 +120,7 @@ export default function Home() {
           </div>
           {data.map((items)=>{
             return (
-              <a href={`/read/${items.id}`} key={id} className="relative overflow-hidden flex flex-col-reverse h-40 rounded-xl ring-1 ring-slate-900/5 shadow-sm bg-white dark:bg-slate-800 lg:h-64 lg:transition lg:ease-in-out lg:delay-30 lg:hover:-translate-y-1 lg:hover:scale-105 lg:hover:shadow-md">
+              <a href={`/read/${items.id}`} key={items.id} className="relative overflow-hidden flex flex-col-reverse h-40 rounded-xl ring-1 ring-slate-900/5 shadow-sm bg-white dark:bg-slate-800 lg:h-64 lg:transition lg:ease-in-out lg:delay-30 lg:hover:-translate-y-1 lg:hover:scale-105 lg:hover:shadow-md">
                 <div className="relative overflow-hidden min-w-full min-h-full bg-slate-200">
                   <img src={items.img} className="absolute top-1/2 left-1/2 translate-y-[-50%] translate-x-[-50%]" alt="" />
                 </div>
