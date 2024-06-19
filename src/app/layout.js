@@ -22,8 +22,6 @@ export default function RootLayout({ children }) {
   const router = useRouter();
   const pathname = usePathname();
 
-
-
   // 1. 다크 모드 상태를 관리하는 상태 변수 선언
   const [isDarkMode, setDarkMode] = useState(false);
 
