@@ -46,8 +46,6 @@ export default function RootLayout({ children }) {
   };
 
 
-
-
   return (
     <html lang="ko" className={`${notoSansKr.className} ${isDarkMode === true ? 'dark' : ''}`} data-js-focus-visible>
       <body className={"bg-slate-50 dark:bg-slate-900"}>
