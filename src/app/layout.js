@@ -6,6 +6,7 @@ import React, { useState , useEffect } from "react";
 import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 import Link from "next/link";
 import { useRouter , usePathname } from "next/navigation";
+import Image from "next/image";
 
 const notoSansKr = Noto_Sans_KR({
   subsets: ['latin'] 
@@ -57,7 +58,7 @@ export default function RootLayout({ children }) {
         <header className="sticky top-0 border-b bg-white dark:bg-slate-600 shadow-sm z-50">
           <div className="flex flex-1 p-6">
             <Link href={"/"} className="flex-1">
-              <img src="/images/BI.png" alt="logo" width={180} height={26} />
+              <Image src="/images/BI.png" alt="logo" width={180} height={26} />
             </Link>
             <div className="flex-1 justify-center dark:text-white hidden lg:flex text-lg">
               {/* <ScrollLink activeClass="active" to="coSection" spy={true} smooth={true} offset={-70} duration={500} className="px-5 cursor-pointer">회사소개</ScrollLink> */}
@@ -98,7 +99,7 @@ export default function RootLayout({ children }) {
         </div>
         <footer className="py-10 bg-gray-700">
           <div className="mx-auto lg:w-[80rem]">
-            <a><img src="/images/BI_w.png" alt="logo" className="" /></a>
+            <a><Image src="/images/BI_w.png" alt="logo" width={180} className="" /></a>
             <address className="py-5 not-italic">
               <a href="#">개인정보처리방침</a>
               <p className="text-slate-300">

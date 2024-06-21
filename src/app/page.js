@@ -22,7 +22,7 @@ export default function Home() {
             return (
               <a href={`/detail/${item.id}`} key={item.id} className="relative overflow-hidden flex flex-col-reverse h-40 rounded-xl ring-1 ring-slate-900/5 shadow-sm bg-white dark:bg-slate-800 lg:h-64 lg:transition lg:ease-in-out lg:delay-30 lg:hover:-translate-y-1 lg:hover:scale-105 lg:hover:shadow-md">
                 <div className="relative overflow-hidden min-w-full min-h-full bg-slate-200">
-                  <img src={item.img} className="absolute top-1/2 left-1/2 translate-y-[-50%] translate-x-[-50%]" alt="" />
+                  <Image src={item.img} className="absolute top-1/2 left-1/2 translate-y-[-50%] translate-x-[-50%]" alt="" />
                 </div>
                 <div className="absolute top-0 left-0 bott right-0 flex h-32 flex-col px-6 pt-4 pb-6 bg-gradient-to-b from-[rgba(0,0,0,.5)] text-white">
                   <p className="mb-0 text-sm">{item.cate}</p>
@@ -46,7 +46,7 @@ export default function Home() {
             return (
               <a href={`/read/${item.id}`} key={item.id} className="relative overflow-hidden flex flex-col-reverse h-40 rounded-xl ring-1 ring-slate-900/5 shadow-sm bg-white dark:bg-slate-800 lg:h-64 lg:transition lg:ease-in-out lg:delay-30 lg:hover:-translate-y-1 lg:hover:scale-105 lg:hover:shadow-md">
                 <div className="relative overflow-hidden min-w-full min-h-full bg-white">
-                  <img src={item.img} className="absolute top-1/2 left-1/2 translate-y-[-50%] translate-x-[-50%]" alt="" />
+                  <Image src={item.img} className="absolute top-1/2 left-1/2 translate-y-[-50%] translate-x-[-50%]" alt="" />
                 </div>
                 <div className="absolute top-0 left-0 bott right-0 flex h-32 flex-col px-6 pt-4 pb-6 bg-gradient-to-b from-[rgba(0,0,0,.5)] text-white">
                   <p className="mb-0 text-sm">{item.cate}</p>
@@ -70,7 +70,7 @@ export default function Home() {
             return (
               <a href={`/read/${item.id}`} key={item.id} className="relative overflow-hidden flex flex-col-reverse h-40 rounded-xl ring-1 ring-slate-900/5 shadow-sm bg-white dark:bg-slate-800 lg:h-64 lg:transition lg:ease-in-out lg:delay-30 lg:hover:-translate-y-1 lg:hover:scale-105 lg:hover:shadow-md">
                 <div className="relative overflow-hidden min-w-full min-h-full bg-slate-200">
-                  <img src={item.img} className="absolute top-1/2 left-1/2 translate-y-[-50%] translate-x-[-50%]" alt="" />
+                  <Image src={item.img} className="absolute top-1/2 left-1/2 translate-y-[-50%] translate-x-[-50%]" alt="" />
                 </div>
                 <div className="absolute top-0 left-0 bott right-0 flex h-32 flex-col px-6 pt-4 pb-6 bg-gradient-to-b from-[rgba(0,0,0,.5)] text-white">
                   <p className="mb-0 text-sm">{item.cate}</p>
@@ -93,7 +93,7 @@ export default function Home() {
             return (
               <a href={`/read/${item.id}`} key={item.id} className="relative overflow-hidden flex flex-col-reverse h-40 rounded-xl ring-1 ring-slate-900/5 shadow-sm bg-white dark:bg-slate-800 lg:h-64 lg:transition lg:ease-in-out lg:delay-30 lg:hover:-translate-y-1 lg:hover:scale-105 lg:hover:shadow-md">
                 <div className="relative overflow-hidden min-w-full min-h-full bg-slate-200">
-                  <img src={item.img} className="absolute top-1/2 left-1/2 translate-y-[-50%] translate-x-[-50%]" alt="" />
+                  <Image src={item.img} className="absolute top-1/2 left-1/2 translate-y-[-50%] translate-x-[-50%]" alt="" />
                 </div>
                 <div className="absolute top-0 left-0 bott right-0 flex h-32 flex-col px-6 pt-4 pb-6 bg-gradient-to-b from-[rgba(0,0,0,.5)] text-white">
                   <p className="mb-0 text-sm">{item.cate}</p>
