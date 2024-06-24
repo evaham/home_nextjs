@@ -22,7 +22,7 @@ export default async function DetailPage({ params }) {
           <p className="mt-4 text-center text-5xl font-bold tracking-tighter leading-tight" dangerouslySetInnerHTML={{ __html: item.title }}></p>
         </div>
         <div className="flex justify-center mt-20 text-center">
-          <img src={item.img} className="w-full" width={800} height={auto} alt="" />
+          <img src={item.img} className="w-full" alt="" />
         </div>
         <div className="mt-5 mb-10">
           <div dangerouslySetInnerHTML={{ __html: item.body }}></div>
