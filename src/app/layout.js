@@ -6,6 +6,8 @@ import React, { useState , useEffect } from "react";
 import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 import Link from "next/link";
 import { useRouter , usePathname } from "next/navigation";
+import Modal from "./component/modal";
+import Contact from "./contact/page";
 import Image from "next/image";
 
 const notoSansKr = Noto_Sans_KR({
@@ -46,12 +48,22 @@ export default function RootLayout({ children }) {
     localStorage.setItem('isDarkMode', JSON.stringify(newDarkMode));
   };
 
+  // 모달 관련
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const openModal = () => {
+    setModalIsOpen(true);
+  }
+
+  const closeModal = () =>{
+    setModalIsOpen(false);
+  }
 
   return (
     <html lang="ko" className={`${notoSansKr.className} ${isDarkMode === true ? 'dark' : ''}`} data-js-focus-visible>
       <body className={"bg-slate-50 dark:bg-slate-900"}>
         <div id="top" className="sr-only"></div>
-        <ScrollLink to="top" spy={true} smooth={true} offset={-70} duration={500} className="fixed bottom-16 right-16 w-14 h-14 flex justify-center items-center rounded-full bg-slate-50 z-50">
+        <ScrollLink to="top" spy={true} smooth={true} offset={-70} duration={500} className="fixed bottom-16 right-16 w-14 h-14 flex justify-center items-center rounded-full bg-slate-300 z-50">
           <span className="sr-only">맨위로</span>
           <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="2rem" viewBox="0 -960 960 960" fill="#000"><path d="m296-345-56-56 240-240 240 240-56 56-184-184-184 184Z"/></svg>
         </ScrollLink>
@@ -68,6 +80,9 @@ export default function RootLayout({ children }) {
               <Link href={"/service"} className={`relative mx-4 after:content-[""] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[0.2rem] after:bg-blue-900 after:transition-[.3s] hover:after:w-full ${pathname === '/service' ? 'text-blue-900 font-bold after:w-[100%]' : 'text-slate-600'}`}>
                 서비스소개
               </Link>
+              <ScrollLink to="section" spy={true} smooth={true} offset={-70} duration={500} className="relative mx-4 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[0.2rem] after:bg-blue-900 after:transition-[.3s] hover:after:w-full cursor-pointer">
+                제휴문의
+              </ScrollLink>
             </div>
 
             <div className="relative flex-1 text-right">
@@ -90,13 +105,24 @@ export default function RootLayout({ children }) {
           </div>
         </header>
         {children}
-        <div className="py-10 bg-indigo-800">
+
+        <div id="section" className="py-10 bg-indigo-800">
           <div className="mx-auto lg:w-[80rem] flex flex-col lg:flex-row justify-center font-bold ">
-            <button className="flex-1 m-6 p-6 rounded-lg bg-white">투게더포스<br/>도입문의</button>
-            <button className="flex-1 m-6 p-6 rounded-lg bg-white">투게더클럽<br/>입정문의</button>
-            <button className="flex-1 m-6 p-6 rounded-lg bg-white">제휴문의</button>
+            <button onClick={openModal} className="flex-1 m-6 p-6 rounded-lg bg-white">투게더포스<br/>도입문의</button>
+            <button onClick={openModal} className="flex-1 m-6 p-6 rounded-lg bg-white">투게더클럽<br/>입점문의</button>
+            <button onClick={openModal} className="flex-1 m-6 p-6 rounded-lg bg-white">제휴문의</button>
           </div>
+          <Modal isOpen={modalIsOpen} onRequestClose={closeModal} contentLabel={"투게더문의"}>
+            <button onClick={closeModal} className=" absolute top-2 right-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" fill="#333" viewBox="0 -960 960 960">
+                  <path d="m256-236-20-20 224-224-224-224 20-20 224 224 224-224 20 20-224 224 224 224-20 20-224-224-224 224Z"/>
+                </svg>
+                <span className="sr-only">닫기</span>
+              </button>
+            <Contact></Contact>
+          </Modal>
         </div>
+
         <footer className="py-10 bg-gray-700">
           <div className="mx-auto lg:w-[80rem]">
             <Link href={"/"}>

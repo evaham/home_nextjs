@@ -69,7 +69,7 @@ export default function Service() {
             )
           })}
         </ul>
-        <div className="grid lg:grid-cols-3 grid-flow-row gap-10">
+        <div className="grid lg:grid-cols-3 grid-flow-row gap-9">
           {filteredData.map((item) => (
             <Link href={`/detail/${item.id}`} key={item.id} className="overflow-hidden flex flex-col h-80 rounded-2xl border border-slate-100 bg-white cursor-pointer dark:bg-slate-800 transition ease-in-out delay-30 hover:-translate-y-1 hover:scale-105 hover:shadow-md">
               <div className="flex flex-col flex-auto px-6 py-4">

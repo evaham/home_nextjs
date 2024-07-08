@@ -3,6 +3,8 @@
 import Image from "next/image";
 import React, { useEffect, useState } from 'react';
 import data from "/public/data/db.json";
+import Link from "next/link";
+import Modal from "./component/modal"
 
 
 export default function Home() {
