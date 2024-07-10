@@ -4,9 +4,9 @@ import { useState, useEffect } from "react";
 import Link from 'next/link'
 import ReactModal from "react-modal";
 
-export default function Modal({isOpen, onRequestClose, contentLabel, children}) {
- 
 
+const Modal = ({isOpen, onRequestClose, contentLabel, children}) => {
+ 
   return (
     <ReactModal isOpen={isOpen} onRequestClose={onRequestClose} contentLabel={contentLabel}
 
@@ -33,3 +33,5 @@ export default function Modal({isOpen, onRequestClose, contentLabel, children}) 
     </ReactModal>
   );
 }
+
+export default Modal;

@@ -1,16 +1,16 @@
 
 import DBdata from "/public/data/db.json";
 
-export async function generateStaticParams() {
-  // DBdata에서 모든 항목의 ID를 사용하여 경로 생성
-  const paths = DBdata.list_group1.map(item => ({
-    id: item.id.toString()
-  }));
+// export async function generateStaticParams() {
+//   // DBdata에서 모든 항목의 ID를 사용하여 경로 생성
+//   const paths = DBdata.list_group1.map(item => ({
+//     id: item.id.toString()
+//   }));
 
-  return paths;
-}
+//   return paths;
+// }
 
-export default async function DetailPage({ params }) {
+const DetailPage = async ({ params }) => {
   const id = params.id;
   const item = DBdata.list_group1.find(item => item.id === parseInt(id));
 
@@ -31,3 +31,4 @@ export default async function DetailPage({ params }) {
     </main>
   )
 }
+export default DetailPage;

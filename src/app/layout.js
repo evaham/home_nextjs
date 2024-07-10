@@ -63,12 +63,16 @@ export default function RootLayout({ children }) {
     <html lang="ko" className={`${notoSansKr.className} ${isDarkMode === true ? 'dark' : ''}`} data-js-focus-visible>
       <body className={"bg-slate-50 dark:bg-slate-900"}>
         <div id="top" className="sr-only"></div>
-        <ScrollLink to="top" spy={true} smooth={true} offset={-70} duration={500} className="fixed bottom-16 right-16 w-14 h-14 flex justify-center items-center rounded-full bg-slate-300 z-50">
+        <ScrollLink to="top" spy={true} smooth={true} offset={-70} duration={500} className="fixed bottom-16 right-16 w-14 h-14 flex justify-center items-center rounded-full bg-slate-500 opacity-70 cursor-pointer z-50 hover:opacity-100">
           <span className="sr-only">맨위로</span>
           <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="2rem" viewBox="0 -960 960 960" fill="#000"><path d="m296-345-56-56 240-240 240 240-56 56-184-184-184 184Z"/></svg>
         </ScrollLink>
         <header className="sticky top-0 border-b bg-white dark:bg-slate-600 shadow-sm z-50">
+
           <div className="flex flex-1 p-6">
+            <button type="button" className="">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" className="fill-slate-700"><path d="M160-269.23v-40h640v40H160ZM160-460v-40h640v40H160Zm0-190.77v-40h640v40H160Z"/></svg>
+            </button>
             <Link href={"/"} className="flex-1">
               <img src="/images/BI.png" width={180} height={30} alt="logo"/>
             </Link>
@@ -80,15 +84,12 @@ export default function RootLayout({ children }) {
               <Link href={"/service"} className={`relative mx-4 after:content-[""] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[0.2rem] after:bg-blue-900 after:transition-[.3s] hover:after:w-full ${pathname === '/service' ? 'text-blue-900 font-bold after:w-[100%]' : 'text-slate-600'}`}>
                 서비스소개
               </Link>
-              <ScrollLink to="section" spy={true} smooth={true} offset={-70} duration={500} className="relative mx-4 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[0.2rem] after:bg-blue-900 after:transition-[.3s] hover:after:w-full cursor-pointer">
+              <Link href={"/contact"} className="relative mx-4 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[0.2rem] after:bg-blue-900 after:transition-[.3s] hover:after:w-full cursor-pointer">
                 제휴문의
-              </ScrollLink>
+              </Link>
             </div>
 
             <div className="relative flex-1 text-right">
-              <button type="button" className="">
-                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" className="fill-slate-700"><path d="M160-269.23v-40h640v40H160ZM160-460v-40h640v40H160Zm0-190.77v-40h640v40H160Z"/></svg>
-              </button>
               <button type="button" onClick={toggleDarkMode}>
                 <span className="dark:hidden">
                   <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6">
@@ -106,7 +107,7 @@ export default function RootLayout({ children }) {
         </header>
         {children}
 
-        <div id="section" className="py-10 bg-indigo-800">
+        <div id="section" className="py-10 bg-indigo-800 hidden">
           <div className="mx-auto lg:w-[80rem] flex flex-col lg:flex-row justify-center font-bold ">
             <button onClick={openModal} className="flex-1 m-6 p-6 rounded-lg bg-white">투게더포스<br/>도입문의</button>
             <button onClick={openModal} className="flex-1 m-6 p-6 rounded-lg bg-white">투게더클럽<br/>입점문의</button>

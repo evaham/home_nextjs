@@ -12,10 +12,14 @@ export default function Home() {
 
   return (
     <main className="min-h-96">
+      <div className="lg:h-[936px] overflow-hidden">
+        <img src="https://vrthumb.clipartkorea.co.kr/2022/10/01/tc00420003318.jpg" alt="메인" className="w-full" />
+      </div>
+
       <div className="">
         <div className="mx-auto py-32 px-5 gap-5 grid lg:w-[80rem] lg:grid-cols-4 lg:grid-flow-row lg:gap-6">
           <div className="relative flex flex-col py-5 px-10 lg:col-start-1 lg:col-end-3 lg:row-start-1 lg:row-end-3">
-            <p className="mt-1 text-2xl font-[700] text-center tracking-tight whitespace-pre-wrap lg:text-[2.7rem] lg:leading-snug lg:text-left dark:text-white">매장운영의 기본,<br/>투게더 POS 솔루션</p>
+            <p className="mt-1 text-2xl font-[700] text-center tracking-tight whitespace-pre-wrap lg:text-[2.7rem] lg:leading-tight lg:text-left dark:text-white">매장운영의 기본,<br/>투게더 POS 솔루션</p>
             <p className="mt-6 text-base text-slate-700 leading-tight lg:mt-6 lg:text-xl lg:leading-normal dark:text-slate-400">
               POS(판매 시점 정보 관리) 시스템은 매장 운영의 필수 도구입니다. 이 시스템은 상품 판매 시점에서 결제 처리, 재고 관리, 매출 분석 등 다양한 기능을 수행하여 효율적인 매장 운영을 돕습니다.
             </p>

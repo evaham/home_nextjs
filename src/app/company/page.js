@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from 'next/link'
 import DBdata from "/public/data/db.json";
 
-export default function Company() {
+const Company = () => {
   // API에서 받아온 데이터를 저장할 상태
   const [data, setData] = useState([]);
   // 필터링된 데이터를 저장할 상태
@@ -85,3 +85,5 @@ export default function Company() {
     </main>
   );
 }
+
+export default Company;
