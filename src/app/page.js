@@ -11,7 +11,7 @@ export default function Home() {
   // API에서 받아온 데이터를 저장할 상태
 
   return (
-    <main className="min-h-96">
+    <div className="min-h-96">
       <div className="lg:h-[936px] overflow-hidden">
         <img src="https://vrthumb.clipartkorea.co.kr/2022/10/01/tc00420003318.jpg" alt="메인" className="w-full" />
       </div>
@@ -111,6 +111,6 @@ export default function Home() {
         </div>
       </div>
 
-    </main>
+    </div>
   );
 }

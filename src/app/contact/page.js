@@ -63,7 +63,7 @@ const Contact = () => {
   };
 
   return (
-    <main>
+    <div>
       <div class="w-[30rem] mx-auto pt-28 lg:w-[80rem]">
         <p class="text-4xl text-center font-bold tracking-tighter">제휴문의</p>
         <p class="my-5 text-lg text-center text-slate-600 tracking-tighter">투게더스에 궁금하신 점이 있거나 <br />제휴/입점 문의가 있으시면 언제든지 문의해주세요.</p>
@@ -182,7 +182,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 
 }

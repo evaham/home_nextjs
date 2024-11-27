@@ -15,7 +15,7 @@ const DetailPage = async ({ params }) => {
   const item = DBdata.list_group1.find(item => item.id === parseInt(id));
 
   return (
-    <main>
+    <div>
       <div className="w-[30rem] mx-auto pt-28 lg:w-[51rem]">
         <div className="">
           <p className="text-xl text-center tracking-tighter">{item.cate}</p>
@@ -28,7 +28,7 @@ const DetailPage = async ({ params }) => {
           <div dangerouslySetInnerHTML={{ __html: item.body }}></div>
         </div>
       </div>
-    </main>
+    </div>
   )
 }
 export default DetailPage;
